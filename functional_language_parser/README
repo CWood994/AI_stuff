@@ -1,0 +1,35 @@
+Connor Wood.994@osu.edu
+
+Instructions for how to run your compiled interpreter:
+make
+./a.out
+
+A description of the overall design of your interpreter, including the parse tree representation, the interaction between the scanner and parser:
+
+overall design of your interpreter:
+Scanner reads in entire file at once then it reads over the string one char at a time until it finds a token then it saves that and waits until nextToken gets called it it finds the next one. The parser can call currentToken or nextToken to interact with the scanner.
+
+Parse Tree Representation:
+<prog> -> <decl-seq> <stmt-seq> 
+<decl-seq> -> <decl><decl-seq>
+<decl> -> function
+<stmt-seq> -> <stmt><stmt-seq>
+<stmt> -> <assign> <if> <loop> <in> <out>
+<assign> -> <expr> 
+<out> -> <expr> 
+<if> -> <cond> <stmt-seq> <stmt-seq> 
+<loop> -> <cond> <stmt-seq> 
+<cond> -> <cmpr> <cond>
+<cmpr> -> <expr> <expr> 
+<expr> -> <term> <expr>
+<term> -> <factor> <term>
+<factor> -> const <expr> <function> <expr-list>
+<expr-list> -> <expr>
+
+A list of known issues/bugs (you won't be penalized explicitly for describing known issues, but of course these issues may in any case lead to failing some of the grader's test cases):
+None
+
+
+
+
+

@@ -1,0 +1,20 @@
+program
+  fun fib(n)
+    int retVal;
+  begin
+    retVal := n;
+    if 1 < n then
+      retVal := call fib(n-1) + call fib(n-2);
+    endif;
+    return retVal;
+  end;
+  int x;
+begin
+  input x;
+  while !(x = 0)
+  begin
+    output x;
+    output call fib(x);
+    input x;
+  endwhile;
+end
